@@ -1072,7 +1072,9 @@ export default class Select extends Component<Props, State> {
       this.controlRef &&
       !this.controlRef.contains(event.target) &&
       this.menuListRef &&
-      !this.menuListRef.contains(event.target)
+      !this.menuListRef.contains(event.target) &&
+      !this.controlRef.contains(event.composedPath()[0]) &&
+      !this.menuListRef.contains(event.composedPath()[0])
     ) {
       this.blurInput();
     }
